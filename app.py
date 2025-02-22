@@ -9,13 +9,13 @@ app = Flask(__name__)
 @app.route('/htop')
 def htop():
     name = "Akshay Sharma"
-    username = os.getenv("USER", "codespace")  # Fix for os.getlogin() issue
+    username = os.getenv("USER", "codespace") 
     
-    # Get IST time
+   
     ist = pytz.timezone('Asia/Kolkata')
     server_time = datetime.now(ist).strftime('%Y-%m-%d %H:%M:%S.%f')
 
-    # Get system process list (alternative to 'top')
+   
     top_output = subprocess.getoutput("ps aux | head -10")
 
     return f"""
